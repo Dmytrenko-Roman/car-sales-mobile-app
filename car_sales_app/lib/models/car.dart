@@ -14,6 +14,7 @@ class Car {
   final String model;
   final String owner;
   final bool isFavorite;
+  final String imageUrl;
 
   Car({
     required this.id,
@@ -31,5 +32,6 @@ class Car {
     required this.model,
     required this.owner,
     this.isFavorite = false,
+    required this.imageUrl,
   });
 }
