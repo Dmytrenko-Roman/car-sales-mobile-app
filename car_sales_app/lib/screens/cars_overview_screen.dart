@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/car.dart';
+import '../widgets/car_item.dart';
 
 class CarsOverviewScreen extends StatelessWidget {
   CarsOverviewScreen({super.key});
@@ -89,7 +90,7 @@ class CarsOverviewScreen extends StatelessWidget {
       body: GridView.builder(
         padding: const EdgeInsets.all(10.0),
         itemCount: loadedCars.length,
-        itemBuilder: (context, index) => Container(),
+        itemBuilder: (context, index) => CarItem(car: loadedCars[index]),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 3 / 2,
