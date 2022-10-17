@@ -13,7 +13,18 @@ class CarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridTile(
-      child: Image.network(car.imageUrl),
+      footer: GridTileBar(
+        title: Text(
+          car.model,
+          textAlign: TextAlign.center,
+        ),
+        backgroundColor: Colors.black54,
+        leading: IconButton(
+          icon: const Icon(Icons.favorite),
+          onPressed: () {},
+        ),
+      ),
+      child: Image.network(car.imageUrl, fit: BoxFit.cover),
     );
   }
 }
