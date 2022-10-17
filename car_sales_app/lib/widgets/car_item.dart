@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../models/car.dart';
+import '../screens/car_detail_screen.dart';
 
 class CarItem extends StatelessWidget {
-  final Car car;
+  final String id;
+  final String imageUrl;
+  final String model;
 
   const CarItem({
     super.key,
-    required this.car,
+    required this.id,
+    required this.imageUrl,
+    required this.model,
   });
 
   @override
@@ -17,7 +22,7 @@ class CarItem extends StatelessWidget {
       child: GridTile(
         footer: GridTileBar(
           title: Text(
-            car.model,
+            model,
             textAlign: TextAlign.center,
           ),
           backgroundColor: Colors.black54,
@@ -27,7 +32,15 @@ class CarItem extends StatelessWidget {
             color: Theme.of(context).colorScheme.primary,
           ),
         ),
-        child: Image.network(car.imageUrl, fit: BoxFit.cover),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushNamed(
+              CarDetailScreen.routeName,
+              arguments: id,
+            );
+          },
+          child: Image.network(imageUrl, fit: BoxFit.cover),
+        ),
       ),
     );
   }

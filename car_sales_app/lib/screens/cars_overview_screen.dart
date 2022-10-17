@@ -90,7 +90,11 @@ class CarsOverviewScreen extends StatelessWidget {
       body: GridView.builder(
         padding: const EdgeInsets.all(10.0),
         itemCount: loadedCars.length,
-        itemBuilder: (context, index) => CarItem(car: loadedCars[index]),
+        itemBuilder: (context, index) => CarItem(
+          id: loadedCars[index].id,
+          imageUrl: loadedCars[index].imageUrl,
+          model: loadedCars[index].model,
+        ),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 3 / 2,
