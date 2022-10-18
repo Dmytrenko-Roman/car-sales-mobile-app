@@ -36,4 +36,9 @@ class Car with ChangeNotifier {
     this.isFavorite = false,
     required this.imageUrl,
   });
+
+  void toggleFavoriteStatus() {
+    isFavorite = !isFavorite;
+    notifyListeners();
+  }
 }

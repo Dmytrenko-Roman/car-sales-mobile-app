@@ -18,8 +18,10 @@ class CarItem extends StatelessWidget {
           ),
           backgroundColor: Colors.black54,
           leading: IconButton(
-            icon: const Icon(Icons.favorite),
-            onPressed: () {},
+            icon: Icon(car.isFavorite ? Icons.favorite : Icons.favorite_border),
+            onPressed: () {
+              car.toggleFavoriteStatus();
+            },
             color: Theme.of(context).colorScheme.primary,
           ),
         ),
