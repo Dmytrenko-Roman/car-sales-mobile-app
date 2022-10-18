@@ -82,6 +82,10 @@ class Cars with ChangeNotifier {
     return [..._items];
   }
 
+  Car findById(String id) {
+    return _items.firstWhere((element) => element.id == id);
+  }
+
   void addCar() {
     // _items.add();
     notifyListeners();
