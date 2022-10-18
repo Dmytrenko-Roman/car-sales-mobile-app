@@ -11,7 +11,7 @@ class CarDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('title'),
+        title: const Text('title'),
       ),
     );
   }

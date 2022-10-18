@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
               secondary: Colors.white,
             ),
           ),
-          home: CarsOverviewScreen(),
+          home: const CarsOverviewScreen(),
           routes: {
             CarDetailScreen.routeName: (context) => const CarDetailScreen(),
           }),

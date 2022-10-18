@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'car_item.dart';
-import '../models/car.dart';
+import '../providers/cars.dart';
 
 class CarsGrid extends StatelessWidget {
-  const CarsGrid({
-    Key? key,
-    required this.loadedCars,
-  }) : super(key: key);
-
-  final List<Car> loadedCars;
-
   @override
   Widget build(BuildContext context) {
+    final carsData = Provider.of<Cars>(context);
+    final cars = carsData.items;
+
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
-      itemCount: loadedCars.length,
+      itemCount: cars.length,
       itemBuilder: (context, index) => CarItem(
-        id: loadedCars[index].id,
-        imageUrl: loadedCars[index].imageUrl,
-        model: loadedCars[index].model,
+        id: cars[index].id,
+        imageUrl: cars[index].imageUrl,
+        model: cars[index].model,
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
