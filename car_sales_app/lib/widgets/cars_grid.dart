@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'car_item.dart';
-import '../providers/cars.dart';
+import '../models/cars.dart';
 
 class CarsGrid extends StatelessWidget {
   @override
@@ -13,10 +13,9 @@ class CarsGrid extends StatelessWidget {
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
       itemCount: cars.length,
-      itemBuilder: (context, index) => CarItem(
-        id: cars[index].id,
-        imageUrl: cars[index].imageUrl,
-        model: cars[index].model,
+      itemBuilder: (context, index) => ChangeNotifierProvider(
+        create: (context) => cars[index],
+        child: CarItem(),
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

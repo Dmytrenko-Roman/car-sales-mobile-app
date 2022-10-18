@@ -1,4 +1,6 @@
-class Car {
+import 'package:flutter/foundation.dart';
+
+class Car with ChangeNotifier {
   final String id;
   final double price;
   final int mileage;
@@ -13,7 +15,7 @@ class Car {
   final int doorsCount;
   final String model;
   final String owner;
-  final bool isFavorite;
+  bool isFavorite;
   final String imageUrl;
 
   Car({
