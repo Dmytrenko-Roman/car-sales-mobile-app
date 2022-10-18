@@ -17,12 +17,15 @@ class CarItem extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           backgroundColor: Colors.black54,
-          leading: IconButton(
-            icon: Icon(car.isFavorite ? Icons.favorite : Icons.favorite_border),
-            onPressed: () {
-              car.toggleFavoriteStatus();
-            },
-            color: Theme.of(context).colorScheme.primary,
+          leading: Consumer<Car>(
+            builder: (ctx, car, child) => IconButton(
+              icon:
+                  Icon(car.isFavorite ? Icons.favorite : Icons.favorite_border),
+              onPressed: () {
+                car.toggleFavoriteStatus();
+              },
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ),
         ),
         child: GestureDetector(
