@@ -13,8 +13,8 @@ class CarsGrid extends StatelessWidget {
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
       itemCount: cars.length,
-      itemBuilder: (context, index) => ChangeNotifierProvider(
-        create: (context) => cars[index],
+      itemBuilder: (context, index) => ChangeNotifierProvider.value(
+        value: cars[index],
         child: CarItem(),
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
