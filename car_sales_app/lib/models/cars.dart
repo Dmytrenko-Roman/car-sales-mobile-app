@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/car.dart';
+import 'car.dart';
 
 class Cars with ChangeNotifier {
   final List<Car> _items = [
@@ -77,6 +77,10 @@ class Cars with ChangeNotifier {
           "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Rolls-Royce_Cullinan_Genf_2019_1Y7A5149.jpg/1200px-Rolls-Royce_Cullinan_Genf_2019_1Y7A5149.jpg",
     ),
   ];
+
+  List<Car> get favoriteItems {
+    return _items.where((element) => element.isFavorite).toList();
+  }
 
   List<Car> get items {
     return [..._items];
