@@ -90,6 +90,12 @@ class Cars with ChangeNotifier {
     return _items.firstWhere((element) => element.id == id);
   }
 
+  void changeIsFavoriteById(String id) {
+    final car = _items.firstWhere((element) => element.id == id);
+    car.isFavorite = !car.isFavorite;
+    notifyListeners();
+  }
+
   void addCar() {
     // _items.add();
     notifyListeners();

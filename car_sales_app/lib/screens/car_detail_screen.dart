@@ -11,11 +11,49 @@ class CarDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final carId = ModalRoute.of(context)?.settings.arguments as String;
-    final loadedCar = Provider.of<Cars>(context, listen: false).findById(carId);
+    final carProvider = Provider.of<Cars>(context);
+    final loadedCar = carProvider.findById(carId);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(loadedCar.model),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(
+                loadedCar.imageUrl,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: Icon(loadedCar.isFavorite
+                      ? Icons.favorite
+                      : Icons.favorite_border),
+                  onPressed: () {
+                    carProvider.changeIsFavoriteById(carId);
+                  },
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                Text(
+                  loadedCar.model,
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
