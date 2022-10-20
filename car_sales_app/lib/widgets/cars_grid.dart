@@ -5,14 +5,10 @@ import 'car_item.dart';
 import '../models/cars.dart';
 
 class CarsGrid extends StatelessWidget {
-  final bool showFavs;
-
-  CarsGrid(this.showFavs);
-
   @override
   Widget build(BuildContext context) {
     final carsData = Provider.of<Cars>(context);
-    final cars = showFavs ? carsData.favoriteItems : carsData.items;
+    final cars = carsData.items;
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
       itemCount: cars.length,
